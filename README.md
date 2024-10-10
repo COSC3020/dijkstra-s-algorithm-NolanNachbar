@@ -70,3 +70,5 @@ I mainly based my solution off of my BFS algorithm and modified it to match the 
 
 I also used this to help me figure out a couple syntax parts like how I should access nodes using  ```let node in graph```
 https://github.com/COSC3020/dijkstra-s-algorithm-Assel-Aljazwe/tree/Code-%26-Analysis
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
