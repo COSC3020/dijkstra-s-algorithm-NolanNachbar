@@ -23,3 +23,52 @@ inefficient.
 
 What is the big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
+
+Recall my code,
+```js
+function dijkstra(graph, sourceNode) {
+    let visited = [];
+    let parent = {};
+    let distance = {};
+    let queue = [sourceNode];
+    for (let node in graph) {
+        distance[node] = Infinity;
+    }
+    distance[sourceNode] = 0;
+    while (queue.length > 0) {
+        let min = null;
+        for (let node in graph) {
+            if (!visited.includes(node) && (min === null || distance[node] < distance[min])) {
+                min = node;
+            }
+        }
+        if (min === null) break;
+        visited.push(min);
+        for (let i = 0; i < graph[min].length; i++) {
+            const [neighbor, weight] = graph[min][i];
+            let newDistance = distance[min] + weight;
+            if (newDistance < distance[neighbor]) {
+                distance[neighbor] = newDistance;
+                parent[neighbor] = min;
+                if (!visited.includes(neighbor) && !queue.includes(neighbor)) {
+                    queue.push(neighbor);
+                }
+            }
+        }
+    }
+    return distance;
+}
+```
+
+The first for-loop will loop $|V|$ times. 
+The while-loop will loop $|V|$ times also. Inside there are two for-loops; the first one will loop a total of $|E|$ times, and the second will loop $|V|$. Thus the complexity is $|V| + |V|(|V| + |E|) \in \Theta(|V|^2)$.
+
+I used this to help me understand the concept:
+https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+
+I mainly based my solution off of my BFS algorithm and modified it to match the pseudocode on the slide. 
+
+I also used this to help me figure out a couple syntax parts like how I should access nodes using  ```let node in graph```
+https://github.com/COSC3020/dijkstra-s-algorithm-Assel-Aljazwe/tree/Code-%26-Analysis
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
