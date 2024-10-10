@@ -61,7 +61,7 @@ function dijkstra(graph, sourceNode) {
 ```
 
 The first for-loop will loop $|V|$ times. 
-The while-loop will loop $|V|$ times also. Inside there are two for-loops; the first one will loop a total of $|E|$ times, and the second will loop $|V|$. Thus the complexity is $|V|(|V| + |E|) \in \Theta(|V|^2)$.
+The while-loop will loop $|V|$ times also. Inside there are two for-loops; the first one will loop a total of $|E|$ times, and the second will loop $|V|$. Thus the complexity is $|V| + |V|(|V| + |E|) \in \Theta(|V|^2)$.
 
 I used this to help me understand the concept:
 https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
